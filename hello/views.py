@@ -2,15 +2,25 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-# Create your views here.
-def index(request):
- return HttpResponse("Hello, World!")
+
+# def greet(request,name):
+#     #make httprequest to render just a str
+#     return HttpResponse(f"Hello,{name.capitalize()}")
+
+# def index(request):
+#     # to render the whole html file
+#  return render(request,"hello/index.html")
+
+# def sherif(request):
+    
+#     return HttpResponse("Hello, Sherif :)")
+
+# def david(request):
+#     return HttpResponse("Hello, David :)")
 
 def greet(request,name):
-    return HttpResponse(f"Hello,{name.capitalize()}")
-
-def sherif(request):
-    return HttpResponse("Hello, Sherif :)")
-
-def david(request):
-    return HttpResponse("Hello, David :)")
+    return render(request,"hello/greet.html",{
+        "name":name.capitalize()
+        
+    })
+    
